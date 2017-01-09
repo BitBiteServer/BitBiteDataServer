@@ -5,7 +5,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
+var databaseUri = 'mongodb://bitbitedatauser:bitbitedatauser@ds157278.mlab.com:57278/bitbitedata';
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -17,6 +17,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'RpGVEtViyZYaOhGwUsE9i3sZgTgS4ja3hhID4nJq',
   masterKey: process.env.MASTER_KEY || 'MJMSxfQmuo7tn53yH49RpccTjfHKL0peOyjIVcRa', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://bitbitedataserver.herokuapp.com/parse',  // Don't forget to change to https if needed
+  fileKey: 'ad0ba15a-4bc3-4d80-9ba3-d828f3b71e1d',
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
